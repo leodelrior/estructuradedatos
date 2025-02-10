@@ -1,0 +1,89 @@
+#pragma once
+class Cuadrado
+{
+private:
+	float lado;
+public:
+	Cuadrado();
+	void set_lado(float _lado);
+	float get_lado();
+	float area();
+};
+
+
+#pragma once
+class Circulo
+{
+private:
+	float radio;
+	float pi = 3.1416;
+public:
+	Circulo();
+	void set_radio(float _radio);
+	void set_pi(float _pi);
+	float get_radio();
+	float get_pi();
+	float area();
+};
+
+
+#pragma once
+class Triangulo
+{
+private:
+	float base;
+	float altura;
+public:
+	Triangulo();
+	void set_altura(float _altura);
+	void set_base(float _base);
+	float get_altura();
+	float get_base();
+	float area();
+};
+
+
+#include "Triangulo.h"
+
+Triangulo::Triangulo() {
+}
+
+void Triangulo::set_altura(float _altura) {
+    altura = _altura;
+}
+void Triangulo::set_base(float _base) {
+    base = _base;
+}
+float Triangulo::get_altura() {
+    return altura;
+}
+float Triangulo::get_base() {
+    return base;
+}
+float Triangulo::area() {
+    return (base * altura) / 2;
+}
+
+
+#include <iostream>
+#include "Triangulo.h"
+using namespace std;
+
+
+int main()
+{
+	float base, altura, area;
+	do {
+		cout << "ingrese la base: ";
+		cin >> base;
+	} while (base < 1);
+	do {
+		cout << "ingrese la altura: ";
+		cin >> altura;
+	} while (altura < 1);
+	Triangulo Triang;  //Declarar el objeto utilizado en el programa.
+	Triang.set_altura(altura);
+	Triang.set_base(base);
+	cout<<"El area es: "<<Triang.area();
+}
+
